@@ -10,8 +10,17 @@ namespace DateBooking.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            builder.Services.AddDateBookingApplicationDependencyInjection();
+            builder.Services.AddCors(options =>
+              {
+                 options.AddDefaultPolicy(policy =>
+                 {
+                        policy.AllowAnyOrigin()
+                              .AllowAnyHeader()
+                              .AllowAnyMethod();
+                 });
+              });
+                // Add services to the container.
+                builder.Services.AddDateBookingApplicationDependencyInjection();
             builder.Services.AddDateBookingDependencyInjection(builder.Configuration);
             builder.Services.AddMediatR(typeof(MainModelCreateCommand).Assembly);
             builder.Services.AddControllers();
@@ -30,6 +39,7 @@ namespace DateBooking.Api
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+            app.UseCors();
 
 
             app.MapControllers();
