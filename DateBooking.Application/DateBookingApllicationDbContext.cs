@@ -1,4 +1,5 @@
 ﻿using DateBooking.Application.UseCases.ExternalServices.EmailSender;
+using DateBooking.Application.UseCases.ExternalServices.SmsSender;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -15,6 +16,7 @@ namespace DateBooking.Application
         public static IServiceCollection AddDateBookingApplicationDependencyInjection(this IServiceCollection services)
         {
             services.AddScoped<IEmailSender, EmailSender>();
+            services.AddScoped<ITwilioSmsSender, TwilioSmsSender>();
             return services;
         }
     }

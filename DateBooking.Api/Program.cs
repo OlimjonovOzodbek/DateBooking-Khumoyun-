@@ -20,7 +20,9 @@ namespace DateBooking.Api
                  });
               });
                 // Add services to the container.
-                builder.Services.AddDateBookingApplicationDependencyInjection();
+            
+            
+            builder.Services.AddDateBookingApplicationDependencyInjection();
             builder.Services.AddDateBookingDependencyInjection(builder.Configuration);
             builder.Services.AddMediatR(typeof(MainModelCreateCommand).Assembly);
             builder.Services.AddControllers();
