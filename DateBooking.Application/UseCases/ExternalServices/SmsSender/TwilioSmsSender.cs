@@ -26,7 +26,7 @@ public class TwilioSmsSender : ITwilioSmsSender
             new PhoneNumber(phoneNumber));
 
         messageOptions.From = new PhoneNumber("+19494385214");
-        messageOptions.Body = "This is static text.";
+        messageOptions.Body = "You have got an email from customer.";
 
         var message = MessageResource.Create(messageOptions);
         Console.WriteLine($"Message Body: {message.Body}");
