@@ -24,8 +24,10 @@ namespace DateBooking.Api
             
             builder.Services.AddDateBookingApplicationDependencyInjection();
             builder.Services.AddDateBookingDependencyInjection(builder.Configuration);
-            builder.Services.AddMediatR(typeof(MainModelCreateCommand).Assembly);
+            //builder.Services.AddMediatR(typeof(MainModelCreateCommand).Assembly);
+
             builder.Services.AddControllers();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -41,6 +43,7 @@ namespace DateBooking.Api
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+
             app.UseCors();
 
 
