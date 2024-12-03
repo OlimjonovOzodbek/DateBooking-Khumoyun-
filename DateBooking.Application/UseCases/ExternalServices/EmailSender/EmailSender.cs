@@ -26,8 +26,8 @@ namespace DateBooking.Application.UseCases.ExternalServices.EmailSender
             var mailMessage = new MailMessage
             {
                 From = new MailAddress(emailSettings["Sender"], emailSettings["SenderName"]),
-                Subject = $"New message",
-                Body = model.Description,
+                Subject = model.Subject,
+                Body = model.Message,
                 IsBodyHtml = true,
             };
             mailMessage.To.Add(model.Email);
