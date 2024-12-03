@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace DateBooking.Application
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<ITwilioSmsSender, TwilioSmsSender>();
 
-            services.AddMediatR(typeof(MainModelCreateCommand).Assembly);
+            services.AddMediatR(Assembly.GetExecutingAssembly());
 
             return services;
         }
