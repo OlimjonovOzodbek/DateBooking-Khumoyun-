@@ -14,7 +14,7 @@ namespace DateBooking.Api.Controllers
         [HttpPost]
         public void SendSMS(SmsSenderModel smsSenderModel)
         {
-            _smsSender.SendSms(smsSenderModel.PhoneNumber);
+            _smsSender.SendSms(smsSenderModel);
         }
     }
 }

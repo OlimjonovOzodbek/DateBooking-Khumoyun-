@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using DateBooking.Application.ViewModels;
+using Microsoft.Extensions.Configuration;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
@@ -20,13 +21,13 @@ public class TwilioSmsSender : ITwilioSmsSender
         TwilioClient.Init(_accountSid, _authToken);
     }
 
-    public void SendSms(string phoneNumber)
+    public void SendSms(SmsSenderModel model)
     {
         var messageOptions = new CreateMessageOptions(
-            new PhoneNumber(phoneNumber));
+            new PhoneNumber(model.PhoneNumber));
 
         messageOptions.From = new PhoneNumber("+19494385214");
-        messageOptions.Body = "You have got an email from customer.";
+        messageOptions.Body = model.Message;
 
         var message = MessageResource.Create(messageOptions);
         Console.WriteLine($"Message Body: {message.Body}");

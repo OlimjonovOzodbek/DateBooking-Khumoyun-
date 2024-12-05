@@ -1,7 +1,9 @@
-﻿namespace DateBooking.Application.UseCases.ExternalServices.SmsSender
+﻿using DateBooking.Application.ViewModels;
+
+namespace DateBooking.Application.UseCases.ExternalServices.SmsSender
 {
     public interface ITwilioSmsSender
     {
-        void SendSms(string phoneNumber);
+        public void SendSms(SmsSenderModel model);
     }
 }
